@@ -215,14 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
           img.alt = comic.title;
           img.loading = 'lazy';
 
-          const link = document.createElement('a');
-          link.className = 'comic-link';
-          link.href = comic.link;
-          link.target = '_blank';
-          link.rel = 'noopener';
-          link.textContent = 'View Full Comic';
-
-          body.append(img, link);
+          body.append(img);
           item.append(header, body);
           feedContainer.appendChild(item);
         });
