@@ -19,6 +19,13 @@ RSS_FEEDS = [
     "https://www.comicsrss.com/rss/pearlsbeforeswine.rss",
 ]
 
+FEED_DISPLAY_NAMES = {
+    "https://xkcd.com/rss.xml": "xkcd",
+    "https://www.comicsrss.com/rss/peanuts.rss": "Peanuts",
+    "https://www.comicsrss.com/rss/dilbert.rss": "Dilbert",
+    "https://www.comicsrss.com/rss/pearlsbeforeswine.rss": "Pearls Before Swine",
+}
+
 PER_PAGE = 5
 CACHE_TTL = 600  # seconds
 
@@ -69,6 +76,7 @@ def fetch_all_comics():
                 "link": entry.get("link", ""),
                 "published": entry.get("published", "") or entry.get("updated", ""),
                 "image": image,
+                "feed": FEED_DISPLAY_NAMES.get(url, ""),
                 "_ts": ts,
             })
 
