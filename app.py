@@ -202,6 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
           const header = document.createElement('div');
           header.className = 'comic-header';
 
+          const feedLabel = document.createElement('div');
+          feedLabel.className = 'comic-feed-label';
+          feedLabel.textContent = comic.feed;
+          feedLabel.style.fontSize = '0.8em';
+          feedLabel.style.color = '#666';
+
           const title = document.createElement('div');
           title.className = 'comic-title';
           title.textContent = comic.title;
@@ -212,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ? new Date(comic.published).toLocaleString()
             : '';
 
-          header.append(title, date);
+          header.append(feedLabel, title, date);
 
           const body = document.createElement('div');
           body.className = 'comic-body';
